@@ -759,6 +759,7 @@ function M.get(config, theme)
         ['NvimTreeOpenedFolderIcon'] = { link = 'NvimTreeFolderIcon' },
         ['NvimTreeOpenedFolderName'] = { fg = theme.ui.fg },
         ['NvimTreeRootFolder'] = { fg = theme.ui.fg },
+        ['NvimTreeDotfile'] = { fg = palette.grey_29 },
         ['NvimTreeWinSeparator'] = {
             bg = config.transparent_background and palette.none or theme.ui.bg,
             fg = config.transparent_background and theme.ui.win_separator.fg
@@ -968,6 +969,8 @@ function M.get(config, theme)
             bg = config.transparent_background and palette.none or theme.ui.bg,
         },
 
+        ['SnacksPickerPathHidden'] = { fg = palette.grey_29 },  -- Скрытые файлы (dotfiles)
+
         -- Snacks Indent
         ['SnacksIndent'] = { fg = palette.split_dark },
         ['SnacksIndentScope'] = { fg = palette.grey_27 },  -- Scope линия (50% темнее)
@@ -987,6 +990,8 @@ function M.get(config, theme)
         ['NeoTreeFileName'] = { fg = palette.light_07 },
         ['NeoTreeFileIcon'] = { fg = palette.light_07 },
         ['NeoTreeRootName'] = { fg = palette.light_07, bold = true },
+        ['NeoTreeDotfile'] = { fg = palette.grey_29 },
+        ['NeoTreeHiddenByName'] = { fg = palette.grey_29 },
 
         -- Mini.icons
         ['MiniIconsAzure'] = { fg = palette.blue_22 },   -- Пастельно голубой для папок

@@ -10,12 +10,12 @@
     lazy = false,
     priority = 1000,
     config = function()
-        require("vscode_modern").setup({
+        require("vscode").setup({
             cursorline = true,
             transparent_background = true,
             nvim_tree_darker = true,
         })
-        vim.cmd.colorscheme("vscode_modern")
+        vim.cmd.colorscheme("vscode")
     end,
 }
 ```
