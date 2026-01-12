@@ -12,18 +12,10 @@ function M.get(config, theme)
         ['Cursor'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorIM'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorLine'] = {
-            bg = config.transparent_background and palette.none
-                or (
-                    config.cursorline and theme.ui.cursor.line.bg
-                    or palette.none
-                ),
+            bg = config.cursorline and theme.ui.cursor.line.bg or palette.none,
         },
         ['CursorLineNr'] = {
-            bg = config.transparent_background and palette.none
-                or (
-                    config.cursorline and theme.ui.cursor.line.nr.bg
-                    or palette.none
-                ),
+            bg = config.cursorline and theme.ui.cursor.line.nr.bg or palette.none,
             fg = theme.ui.cursor.line.nr.fg,
         },
         ['Directory'] = { fg = theme.ui.directory.fg },
@@ -215,6 +207,11 @@ function M.get(config, theme)
         ['@function.method.call'] = { link = 'Function' },
         ['@keyword.import'] = { link = 'Include' },
         ['@keyword'] = { link = 'Keyword' },
+        ['@keyword.function'] = { link = 'Keyword' },
+        ['@keyword.type'] = { link = 'Keyword' },
+        ['@keyword.modifier'] = { link = 'Keyword' },
+        ['@keyword.operator'] = { link = 'Keyword' },
+        ['@keyword.coroutine'] = { link = 'Keyword' },
         ['@keyword.return'] = {
             fg = theme.sintax.keyword_control_flow,
             italic = config.italic_keyword,
@@ -679,7 +676,7 @@ function M.get(config, theme)
         ['CmpItemKindEvent'] = { fg = theme.ui.fg },
         ['CmpItemKindField'] = { fg = palette.blue_23 },
         ['CmpItemKindFile'] = { fg = theme.ui.fg },
-        ['CmpItemKindFolder'] = { fg = palette.yellow_04 },
+        ['CmpItemKindFolder'] = { fg = theme.ui.directory.fg },
         ['CmpItemKindFunction'] = { fg = palette.purple_02 },
         ['CmpItemKindInterface'] = { fg = palette.blue_23 },
         ['CmpItemKindKeyword'] = { fg = theme.ui.fg },
@@ -926,8 +923,7 @@ function M.get(config, theme)
         ['SnacksPickerInputBorder'] = {
             bg = config.transparent_background and palette.none
                 or theme.ui.telescope.prompt.border.bg,
-            fg = config.transparent_background and palette.light_02
-                or theme.ui.telescope.prompt.border.fg,
+            fg = palette.split_dark,
         },
         ['SnacksPickerList'] = {
             bg = config.transparent_background and palette.none
@@ -936,8 +932,7 @@ function M.get(config, theme)
         ['SnacksPickerListBorder'] = {
             bg = config.transparent_background and palette.none
                 or theme.ui.telescope.results.border.bg,
-            fg = config.transparent_background and palette.light_02
-                or theme.ui.telescope.results.border.fg,
+            fg = palette.split_dark,
         },
         ['SnacksPickerListCursorLine'] = {
             bg = theme.ui.telescope.selection.bg,
@@ -950,8 +945,7 @@ function M.get(config, theme)
         ['SnacksPickerPreviewBorder'] = {
             bg = config.transparent_background and palette.none
                 or theme.ui.telescope.preview.border.bg,
-            fg = config.transparent_background and palette.light_02
-                or theme.ui.telescope.preview.border.fg,
+            fg = palette.split_dark,
         },
         ['SnacksPickerPrompt'] = {
             bg = config.transparent_background and palette.none
@@ -964,8 +958,60 @@ function M.get(config, theme)
         ['SnacksPickerTree'] = {
             bg = config.transparent_background and palette.none
                 or theme.ui.telescope.results.bg,
-            fg = theme.ui.line_nr.fg,
+            fg = palette.split_dark,
         },
+        ['SnacksInputBorder'] = {
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+            fg = palette.split_dark,
+        },
+        ['SnacksInputNormal'] = {
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+
+        -- Snacks Indent
+        ['SnacksIndent'] = { fg = palette.split_dark },
+        ['SnacksIndentScope'] = { fg = palette.grey_27 },  -- Scope линия (50% темнее)
+
+        -- NeoTree
+        ['NeoTreeNormal'] = { bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NeoTreeNormalNC'] = { bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NeoTreeWinSeparator'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NeoTreeVertSplit'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NeoTreeFloatBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NeoTreeFloatTitle'] = { fg = palette.grey_18, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NeoTreeTitleBar'] = { fg = palette.grey_18, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NeoTreeIndentMarker'] = { fg = palette.split_dark },
+        ['NeoTreeExpander'] = { fg = palette.split_dark },
+        ['NeoTreeDirectoryIcon'] = { fg = palette.blue_22 },          -- Пастельно голубой для иконок
+        ['NeoTreeDirectoryName'] = { fg = palette.grey_26 },        -- Серый для названий (20% темнее)
+        ['NeoTreeFileName'] = { fg = palette.light_07 },
+        ['NeoTreeFileIcon'] = { fg = palette.light_07 },
+        ['NeoTreeRootName'] = { fg = palette.light_07, bold = true },
+
+        -- Mini.icons
+        ['MiniIconsAzure'] = { fg = palette.blue_22 },   -- Пастельно голубой для папок
+        ['MiniIconsBlue'] = { fg = palette.blue_21 },
+        ['MiniIconsCyan'] = { fg = palette.green_08 },
+        ['MiniIconsGreen'] = { fg = palette.green_04 },
+        ['MiniIconsGrey'] = { fg = palette.grey_18 },
+        ['MiniIconsOrange'] = { fg = palette.orange_02 },
+        ['MiniIconsPurple'] = { fg = palette.purple_03 },
+        ['MiniIconsRed'] = { fg = palette.red_08 },
+        ['MiniIconsYellow'] = { fg = palette.yellow_07 },
+
+        -- WhichKey
+        ['WhichKeyFloat'] = { bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['WhichKeyBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['WhichKeySeparator'] = { fg = palette.split_dark },
+
+        -- Noice
+        ['NoiceCmdlinePopupBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NoicePopupBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NoiceCmdlinePopupBorderSearch'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+
+        -- LSP
+        ['LspFloatWinBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['LspInfoBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
 
         -- github.com/Saghen/blink.cmp
         ['BlinkCmpMenu'] = { bg = theme.ui.float.bg },

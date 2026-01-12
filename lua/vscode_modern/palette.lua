@@ -6,6 +6,13 @@ local palette = {
     dark_04 = '#171717',
     dark_05 = '#181818',
     dark_06 = '#1f1f1f',
+    dark_07 = '#151515',  -- Для cursorline
+
+    -- Custom colors from old vscode.nvim theme
+    split_dark = '#1e1e1e',        -- Цвет разделителей (50% темнее)
+    tab_current = '#1F1F1F',       -- Текущий таб
+    tab_other = '#2D2D2D',         -- Неактивные табы
+    tab_outside = '#121212',       -- Фон за табами/статусбар
 
     grey_01 = '#252526',
     grey_02 = '#262626',
@@ -32,6 +39,9 @@ local palette = {
     grey_23 = '#969696',
     grey_24 = '#979797',
     grey_25 = '#999999',
+    grey_26 = '#a3a3a3',  -- Для названий папок в NeoTree
+    grey_27 = '#2a3e3e',  -- Для scope линии (50% темнее от #537b7b)
+    grey_28 = '#7a7b79',  -- Для курсора (30% темнее от #aeafad)
 
     light_01 = '#a6a6a6',
     light_02 = '#a9a9a9',

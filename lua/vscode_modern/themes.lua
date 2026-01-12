@@ -35,9 +35,9 @@ return {
                         fg = palette.dark_05,
                     },
                     line = {
-                        bg = palette.grey_03,
+                        bg = palette.dark_07,  -- 20% темнее (#202020)
                         nr = {
-                            bg = palette.grey_03,
+                            bg = palette.dark_07,
                             fg = palette.light_06,
                         },
                     },
@@ -46,13 +46,13 @@ return {
                     bg = palette.grey_04,
                 },
                 directory = {
-                    fg = palette.yellow_04,
+                    fg = palette.grey_26, -- Серый для названий папок (20% темнее)
                 },
                 float = {
                     bg = background,
                     border = {
                         bg = background,
-                        fg = palette.grey_15,
+                        fg = palette.split_dark,
                     },
                 },
                 line_nr = {
@@ -102,8 +102,7 @@ return {
                     fg = palette.grey_08,
                 },
                 win_separator = {
-                    fg = config.transparent_background and palette.grey_08
-                        or palette.dark_02,
+                    fg = palette.split_dark,
                 },
                 pmenu = {
                     bg = palette.grey_05,
@@ -120,9 +119,9 @@ return {
                     },
                 },
                 indent_guide = {
-                    fg = palette.grey_08,
+                    fg = palette.split_dark,
                     active = {
-                        fg = palette.grey_15,
+                        fg = palette.split_dark,
                     },
                 },
                 folded = {
@@ -140,7 +139,7 @@ return {
                         bg = palette.grey_01,
                         border = {
                             bg = palette.grey_01,
-                            fg = palette.grey_01,
+                            fg = palette.split_dark,
                         },
                         title = {
                             bg = palette.blue_06,
@@ -152,7 +151,7 @@ return {
                         fg = palette.light_01,
                         border = {
                             bg = palette.grey_07,
-                            fg = palette.grey_07,
+                            fg = palette.split_dark,
                         },
                         counter = {
                             fg = palette.light_01,
@@ -166,7 +165,7 @@ return {
                         bg = palette.grey_05,
                         border = {
                             bg = palette.grey_05,
-                            fg = palette.grey_05,
+                            fg = palette.split_dark,
                         },
                         title = {
                             bg = palette.blue_06,
@@ -240,8 +239,8 @@ return {
                     text = palette.grey_10,
                 },
                 inlay_hint = {
-                    bg = palette.grey_02,
-                    fg = palette.grey_23,
+                    bg = palette.none, -- Прозрачный фон
+                    fg = palette.grey_13,
                 },
             },
             neotest = {
@@ -273,6 +272,14 @@ return {
                     },
                     col = {
                         fg = palette.grey_25,
+                    },
+                    border = {
+                        fg = palette.split_dark,
+                    },
+                },
+                input = {
+                    border = {
+                        fg = palette.split_dark,
                     },
                 },
             },
@@ -321,7 +328,7 @@ return {
                     bg = palette.light_12,
                 },
                 directory = {
-                    fg = palette.yellow_04,
+                    fg = palette.blue_07, -- Синий для light темы (VSCode style)
                 },
                 float = {
                     bg = background,
