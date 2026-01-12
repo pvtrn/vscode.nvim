@@ -1,5 +1,6 @@
 # VSCode Modern v2 theme for Neovim, Dark & Light versions
 
+![Example](example.png)
 
 # Installation
 
