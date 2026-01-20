@@ -15,7 +15,8 @@ function M.get(config, theme)
             bg = config.cursorline and theme.ui.cursor.line.bg or palette.none,
         },
         ['CursorLineNr'] = {
-            bg = config.cursorline and theme.ui.cursor.line.nr.bg or palette.none,
+            bg = config.cursorline and theme.ui.cursor.line.nr.bg
+                or palette.none,
             fg = theme.ui.cursor.line.nr.fg,
         },
         ['Directory'] = { fg = theme.ui.directory.fg },
@@ -319,18 +320,40 @@ function M.get(config, theme)
 
         -- Markdown
         ['@label.markdown'] = { link = 'Identifier' },
-        ['@markup.heading.1.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.1.marker.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.2.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.2.marker.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.3.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.3.marker.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.4.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.4.marker.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.5.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.5.marker.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.6.markdown'] = { link = 'Keyword' },
-        ['@markup.heading.6.marker.markdown'] = { link = 'Keyword' },
+        ['@markup.raw.markdown_inline'] = { fg = palette.blue_30 }, --Inline code `text`
+        ['@markup.raw.block.markdown'] = { fg = palette.blue_30 }, -- Code blocks ```text```
+        ['@markup.raw.markdown'] = { fg = palette.blue_30 }, -- Code blocks ```text```
+
+        ['@markup.heading.1.markdown'] = { fg = palette.blue_29, bold = true },
+        ['@markup.heading.1.marker.markdown'] = {
+            fg = palette.blue_29,
+            bold = true,
+        },
+        ['@markup.heading.2.markdown'] = { fg = palette.blue_29, bold = true },
+        ['@markup.heading.2.marker.markdown'] = {
+            fg = palette.blue_29,
+            bold = true,
+        },
+        ['@markup.heading.3.markdown'] = { fg = palette.blue_29, bold = true },
+        ['@markup.heading.3.marker.markdown'] = {
+            fg = palette.blue_29,
+            bold = true,
+        },
+        ['@markup.heading.4.markdown'] = { fg = palette.blue_29, bold = true },
+        ['@markup.heading.4.marker.markdown'] = {
+            fg = palette.blue_29,
+            bold = true,
+        },
+        ['@markup.heading.5.markdown'] = { fg = palette.blue_29, bold = true },
+        ['@markup.heading.5.marker.markdown'] = {
+            fg = palette.blue_29,
+            bold = true,
+        },
+        ['@markup.heading.6.markdown'] = { fg = palette.blue_29, bold = true },
+        ['@markup.heading.6.marker.markdown'] = {
+            fg = palette.blue_29,
+            bold = true,
+        },
 
         -- Python
         ['@attribute.python'] = { link = 'Function' },
@@ -969,24 +992,43 @@ function M.get(config, theme)
             bg = config.transparent_background and palette.none or theme.ui.bg,
         },
 
-        ['SnacksPickerPathHidden'] = { fg = palette.grey_29 },  -- Скрытые файлы (dotfiles)
+        ['SnacksPickerPathHidden'] = { fg = palette.grey_29 }, -- Скрытые файлы (dotfiles)
 
         -- Snacks Indent
         ['SnacksIndent'] = { fg = palette.split_dark },
-        ['SnacksIndentScope'] = { fg = palette.grey_27 },  -- Scope линия (50% темнее)
+        ['SnacksIndentScope'] = { fg = palette.grey_27 }, -- Scope линия (50% темнее)
 
         -- NeoTree
-        ['NeoTreeNormal'] = { bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['NeoTreeNormalNC'] = { bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['NeoTreeWinSeparator'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['NeoTreeVertSplit'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['NeoTreeFloatBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['NeoTreeFloatTitle'] = { fg = palette.grey_18, bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['NeoTreeTitleBar'] = { fg = palette.grey_18, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NeoTreeNormal'] = {
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['NeoTreeNormalNC'] = {
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['NeoTreeWinSeparator'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['NeoTreeVertSplit'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['NeoTreeFloatBorder'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['NeoTreeFloatTitle'] = {
+            fg = palette.grey_18,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['NeoTreeTitleBar'] = {
+            fg = palette.grey_18,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
         ['NeoTreeIndentMarker'] = { fg = palette.split_dark },
         ['NeoTreeExpander'] = { fg = palette.split_dark },
-        ['NeoTreeDirectoryIcon'] = { fg = palette.blue_22 },          -- Пастельно голубой для иконок
-        ['NeoTreeDirectoryName'] = { fg = palette.grey_26 },        -- Серый для названий (20% темнее)
+        ['NeoTreeDirectoryIcon'] = { fg = palette.blue_22 }, -- Пастельно голубой для иконок
+        ['NeoTreeDirectoryName'] = { fg = palette.grey_26 }, -- Серый для названий (20% темнее)
         ['NeoTreeFileName'] = { fg = palette.light_07 },
         ['NeoTreeFileIcon'] = { fg = palette.light_07 },
         ['NeoTreeRootName'] = { fg = palette.light_07, bold = true },
@@ -994,7 +1036,7 @@ function M.get(config, theme)
         ['NeoTreeHiddenByName'] = { fg = palette.grey_29 },
 
         -- Mini.icons
-        ['MiniIconsAzure'] = { fg = palette.blue_22 },   -- Пастельно голубой для папок
+        ['MiniIconsAzure'] = { fg = palette.blue_22 }, -- Пастельно голубой для папок
         ['MiniIconsBlue'] = { fg = palette.blue_21 },
         ['MiniIconsCyan'] = { fg = palette.green_08 },
         ['MiniIconsGreen'] = { fg = palette.green_04 },
@@ -1005,18 +1047,38 @@ function M.get(config, theme)
         ['MiniIconsYellow'] = { fg = palette.yellow_07 },
 
         -- WhichKey
-        ['WhichKeyFloat'] = { bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['WhichKeyBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['WhichKeyFloat'] = {
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['WhichKeyBorder'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
         ['WhichKeySeparator'] = { fg = palette.split_dark },
 
         -- Noice
-        ['NoiceCmdlinePopupBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['NoicePopupBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['NoiceCmdlinePopupBorderSearch'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['NoiceCmdlinePopupBorder'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['NoicePopupBorder'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['NoiceCmdlinePopupBorderSearch'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
 
         -- LSP
-        ['LspFloatWinBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
-        ['LspInfoBorder'] = { fg = palette.split_dark, bg = config.transparent_background and palette.none or theme.ui.bg },
+        ['LspFloatWinBorder'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
+        ['LspInfoBorder'] = {
+            fg = palette.split_dark,
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
 
         -- github.com/Saghen/blink.cmp
         ['BlinkCmpMenu'] = { bg = theme.ui.float.bg },
@@ -1068,6 +1130,17 @@ function M.get(config, theme)
         ['BlinkCmpKindUnit'] = { fg = theme.sintax.identifier },
         ['BlinkCmpKindValue'] = { fg = theme.sintax.identifier },
         ['BlinkCmpKindVariable'] = { fg = theme.sintax.identifier },
+
+        -- MeanderingProgrammer/render-markdown.nvim
+        ['RenderMarkdownTableHead'] = {
+            fg = palette.grey_30,
+            bg = palette.none,
+        },
+        ['RenderMarkdownTableRow'] = { fg = palette.grey_30, bg = palette.none },
+        ['RenderMarkdownTableFill'] = {
+            fg = palette.grey_30,
+            bg = palette.none,
+        },
     }
 end
 
